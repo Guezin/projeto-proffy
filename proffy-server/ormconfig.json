@@ -6,9 +6,9 @@
   "username": "postgres",
   "password": "123456",
   "database": "nlw02",
-  "entities": ["./src/modules/**/infra/typeorm/entities/*.ts"],
-  "migrations": ["./src/shared/infra/database/typeorm/migrations/*.ts"],
+  "entities": ["./src/entities/*.ts"],
+  "migrations": ["./src/shared/database/typeorm/migrations/*.ts"],
   "cli": {
-    "migrationsDir": "./src/shared/infra/database/typeorm/migrations"
+    "migrationsDir": "./src/shared/database/typeorm/migrations"
   }
 }
