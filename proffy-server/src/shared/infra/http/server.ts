@@ -2,6 +2,7 @@ import 'reflect-metadata';
 import express, { json } from 'express';
 
 import '../database/typeorm/connectionDB';
+import '../container';
 
 import routes from './routes';
 
