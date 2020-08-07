@@ -1,8 +1,8 @@
 import { getConnection, Brackets } from 'typeorm';
 
-import converHourToMinutes from '../utils/convertHourToMinutes';
+import converHourToMinutes from '../../utils/convertHourToMinutes';
 
-import ClassesSchedules from '../entities/ClassesSchedules';
+import ClassesSchedules from '../../entities/ClassesSchedules';
 
 interface IRequest {
   week_day: string;

@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 
-import CreateClassService from '../services/CreateClassService';
-import ListClassesService from '../services/ListClassesService';
+import CreateClassService from '../services/classes/CreateClassService';
+import ListClassesService from '../services/classes/ListClassesService';
 
 type IFilters = {
   week_day: string;

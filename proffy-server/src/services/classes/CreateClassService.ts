@@ -1,10 +1,10 @@
 import { getConnection } from 'typeorm';
 
-import convertHourToMinutes from '../utils/convertHourToMinutes';
+import convertHourToMinutes from '../../utils/convertHourToMinutes';
 
-import User from '../entities/User';
-import Class from '../entities/Class';
-import ClassesSchedules from '../entities/ClassesSchedules';
+import User from '../../entities/User';
+import Class from '../../entities/Class';
+import ClassesSchedules from '../../entities/ClassesSchedules';
 
 interface ISchedule {
   week_day: number;
