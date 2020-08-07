@@ -21,7 +21,7 @@ export default class CreateClasses1596670636750 implements MigrationInterface {
 
           {
             name: 'cost',
-            type: 'decimal',
+            type: 'int',
           },
 
           {

@@ -1,8 +1,28 @@
 import { Request, Response } from 'express';
 
 import CreateClassService from '../services/CreateClassService';
+import ListClassesService from '../services/ListClassesService';
+
+type IFilters = {
+  week_day: string;
+  subject: string;
+  time: string;
+};
 
 class ClassController {
+  public async index(request: Request, response: Response): Promise<Response> {
+    const filters = request.query as IFilters;
+    const listClasses = new ListClassesService();
+
+    try {
+      const classes = await listClasses.execute(filters);
+
+      return response.json(classes);
+    } catch (err) {
+      return response.status(400).json({ error: err.message });
+    }
+  }
+
   public async create(request: Request, response: Response): Promise<Response> {
     const {
       name,
@@ -33,4 +53,4 @@ class ClassController {
   }
 }
 
-export default new ClassController();
+export default ClassController;

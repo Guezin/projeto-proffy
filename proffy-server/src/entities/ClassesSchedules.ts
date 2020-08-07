@@ -2,9 +2,13 @@ import {
   Entity,
   Column,
   PrimaryGeneratedColumn,
+  OneToOne,
+  JoinColumn,
   CreateDateColumn,
   UpdateDateColumn,
 } from 'typeorm';
+
+import Class from './Class';
 
 @Entity('classes_schedules')
 class ClassesSchedules {
@@ -20,6 +24,8 @@ class ClassesSchedules {
   @Column()
   to: number;
 
+  @OneToOne(() => Class)
+  @JoinColumn({ name: 'class_id' })
   @Column()
   class_id: string;
 
