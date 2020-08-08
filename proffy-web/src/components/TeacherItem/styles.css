@@ -60,7 +60,7 @@
   display: block;
 }
 
-.teacher-item footer button {
+.teacher-item footer a {
   width: 20rem;
   height: 5.6rem;
   background-color: var(--color-secundary);
@@ -69,6 +69,7 @@
   border-radius: 0.8rem;
   cursor: pointer;
   font: 700 1.4rem 'Archivo';
+  text-decoration: none;
 
   display: flex;
   align-items: center;
@@ -76,11 +77,11 @@
   transition: background-color 0.2s;
 }
 
-.teacher-item footer button:hover {
+.teacher-item footer a:hover {
   background-color: var(--color-secundary-dark);
 }
 
-@media(min-width: 700px) {
+@media (min-width: 700px) {
   .teacher-item header,
   .teacher-item footer {
     padding: 3.2rem;

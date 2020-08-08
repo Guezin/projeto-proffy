@@ -77,7 +77,7 @@ const TeacherForm: React.FC = () => {
 
       setScheduleItems(updatedScheduleItems);
     },
-    [scheduleItems, setScheduleItems]
+    [scheduleItems]
   );
 
   return (
@@ -129,7 +129,7 @@ const TeacherForm: React.FC = () => {
                 { value: 'Biologia', label: 'Biologia' },
                 { value: 'Ciências', label: 'Ciências' },
                 { value: 'Educação Fisica', label: 'Educação Fisica' },
-                { value: 'Matématica', label: 'Matématica' },
+                { value: 'Matemática', label: 'Matemática' },
                 { value: 'Português', label: 'Português' },
                 { value: 'Geografia', label: 'Geografia' },
                 { value: 'Historia', label: 'Historia' },
@@ -149,7 +149,7 @@ const TeacherForm: React.FC = () => {
           <fieldset>
             <legend>
               Horários disponíveis
-              <button type="submit" onClick={handleAddNewScheduleItem}>
+              <button type="button" onClick={handleAddNewScheduleItem}>
                 + Novo horário
               </button>
             </legend>
@@ -203,7 +203,7 @@ const TeacherForm: React.FC = () => {
               Preencha todos os dados
             </p>
 
-            <button type="button">Salvar cadastro</button>
+            <button type="submit">Salvar cadastro</button>
           </footer>
         </form>
       </main>

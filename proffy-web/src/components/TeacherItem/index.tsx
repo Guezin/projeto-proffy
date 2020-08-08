@@ -1,43 +1,68 @@
-import React from "react";
+import React, { useCallback } from 'react';
 
-import whatsappIcon from "../../assets/images/icons/whatsapp.svg";
+import api from '../../services/api';
 
-import "./styles.css";
+import whatsappIcon from '../../assets/images/icons/whatsapp.svg';
 
-const TeacherItem: React.FC = () => {
+import './styles.css';
+
+export interface ITeacher {
+  id: string;
+  class_id: {
+    cost: number;
+    subject: string;
+    user: {
+      id: string;
+      name: string;
+      avatar: string;
+      whatsapp: string;
+      bio: string;
+    };
+  };
+}
+
+interface ITeacherProps {
+  teacher: ITeacher;
+}
+
+const TeacherItem: React.FC<ITeacherProps> = ({ teacher }) => {
+  const handleCreateNewConnection = useCallback(async () => {
+    await api.post('/connections', {
+      user_id: teacher.class_id.user.id,
+    });
+  }, [teacher]);
+
   return (
     <article className="teacher-item">
       <header>
         <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS1DeyZNqRdLF9WiyJOo7YQW5HxbSp3F6tNQQ&usqp=CAU"
-          alt="Imagem Avatar"
+          src={teacher.class_id.user.avatar}
+          alt={teacher.class_id.user.name}
         />
 
         <div>
-          <strong>Leandro Guezin Jr</strong>
-          <span>Química</span>
+          <strong>{teacher.class_id.user.name}</strong>
+          <span>{teacher.class_id.subject}</span>
         </div>
       </header>
 
-      <p>
-        Entusiasta das melhores tecnologias de química avançada.
-        <br />
-        <br />
-        Apaixonado por explodir coisas em laboratório e por mudar a vida das
-        pessoas através de experiências. Mais de 200.000 pessoas já passaram por
-        uma das minhas explosões.
-      </p>
+      <p>{teacher.class_id.user.bio}</p>
 
       <footer>
         <p>
           Preço/hora
-          <strong>R$ 80,00</strong>
+          <strong>R$ {teacher.class_id.cost}</strong>
         </p>
 
-        <button type="button">
+        <a
+          href={`https://wa.me/${teacher.class_id.user.whatsapp}`}
+          target="_blank"
+          rel="noopener noreferre"
+          onClick={handleCreateNewConnection}
+        >
           <img src={whatsappIcon} alt="Whatsapp" />
           Entrar em contato
-        </button>
+        </a>
       </footer>
     </article>
   );
